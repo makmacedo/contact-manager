@@ -1,61 +1,147 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+# Setup
 
-## About Laravel
+### Clone the project
+```
+git clone https://github.com/makmacedo/contact-manager.git
+```
+### Set environment variables defining database details and initial user credentials.
+```
+cp .env.example .env
+```
+### create Application Key.
+```
+php artisan key:generate
+```
+### Install composer dependencies
+```
+composer install
+```
+### Migrate and Seed database
+```
+php artisan migrate --seed
+```
+### Serve local aplication
+```
+php artisan serve
+```
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+# API-Routes
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+| Method    | URI                                                    | Action                                          |
+| --------- | ------------------------------------------------------ | ----------------------------------------------- |
+| GET/HEAD  | [api/routes](#Routes)                                  | App\Http\Controllers\Controler@routes           |
+| POST      | [api/login](#Login)                                    | App\Http\Controllers\AuthController@login       |
+| GET/HEAD  | [api/logout](#Logout)                                  | App\Http\Controllers\AuthController@logout      |
+| POST      | [api/register](#Store-user)                            | App\Http\Controllers\UserController@store       |
+| GET/HEAD  | [api/user](#Auth-user)                                 | App\Http\Controllers\UserController@show        |
+| GET/HEAD  | [api/company](#All-companies)                          | App\Http\Controllers\CompanyController@index    |
+| GET/HEAD  | [api/company/{company_id}/contacts](#Company-contacts) | App\Http\Controllers\CompanyController@contacts |
+| GET/HEAD  | [api/contact](#Contacts-list)                          | App\Http\Controllers\ContactController@index    |
+| POST      | [api/contact](#Store_contact)                          | App\Http\Controllers\ContactController@store    |
+| POST      | [api/search](#Search)                                  | App\Http\Controllers\ContactController@search   |
+| GET/HEAD  | [api/contact/{contact_id}](#Single-contact)            | App\Http\Controllers\ContactController@show     |
+| PUT/PATCH | [api/contact/{contact_id}](#Edit-contact)              | App\Http\Controllers\ContactController@update   |
+| DELETE    | [api/contact/{contact_id}](#Delete-contact)            | App\Http\Controllers\ContactController@destroy  |
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+------------------
 
-## Learning Laravel
+## [Routes](#Routes)
+*GET* `api/routes` retrieve the [list of api routes](#API-Routes).
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## [Login](#Login)
+*POST* `api/login` autehnticate user based on credentials sent over form fields, and retrieve a [API token](#API-Token) necessary to necessary to interact with other API end-point
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+| Field name  | Type   | Requiered |
+| ----------- | ------ |:---------:|
+| email       | string |    yes    |
+| password    | string |    yes    |
 
-## Laravel Sponsors
+## [Logout](#Logout)
+*POST* `api/logout` revoke authenticated user [API token](#API-Token).
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## [Store-user](#Store-user)
+*POST* `api/register` store a new user based on form fiels and rules below
 
-### Premium Partners
+| Field name           | Type   | Requiered | Observation      |
+| -------------------- | ------ |:---------:| ---------------- |
+| name                 | string |    yes    |                  |
+| email                | string |    yes    | email format     |
+| password             | string |    yes    |                  |
+| password_confimation | string |    yes    | same as password |
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[OP.GG](https://op.gg)**
+## [Auth-user](#Auth-user)
+*GET* `api/user` retrieve the authenticated user informations.
 
-## Contributing
+## [All-companies](#All-companies)
+*GET* `api/company` 
+shows a list off all companies.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## [Company-contacts](#Company-contacts)
+*GET* `api/company/{company_id}/contacts` 
+shows a company list of contacts identifing company by id in URI first parameter.
 
-## Code of Conduct
+## [Contacts-list](#Contacts-list)
+*GET* `api/contact` 
+show a paginated list of contacts
+- acxept an optional query parameter `limit` that define the amout of contacts per page, (`limit` is 10 by default and can assume other value or *all*)
+- accept an optional query parameter `page` that define the current page of contacts. 
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## [Store-contact](#Store-contact)
+*POST* `api/contact` store a new contact based on form fiels and rules below
 
-## Security Vulnerabilities
+| Field name  | Type   | Requiered | Observation    |
+| ----------- | ------ |:---------:| -------------- |
+| first_name  | string |    yes    |                |
+| last_name   | string |    yes    |                |
+| middle_name | string |    no     |                |
+| gender      | string |    no     | male or female |
+| title       | string |    no     | max 20 char    |
+| phone       | string |    no     | max 30 char    |
+| mobile      | string |    yes    | max 30 char    |
+| email       | string |    yes    | must be unique |
+| notes       | text   |    no     |                |
+| company_id  | string |    yes    | must exits     |
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## [Search](#Search)
 
-## License
+*POST* `api/search` search by name companies or contacts based in partial string match with form field `term` 
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+| Field name  | Type   | Requiered |
+| ----------- | ------ |:---------:|
+| term        | string |    yes    |
+
+## [Single-contact](#Single-contact)
+*GET* `api/contact/{contact_id}` retrieve a single contact identified by *contact_id* in URI
+
+## [Edit-contact](#Edit-contact)
+*PATCH* `api/contact/{contact_id}` update a contact identified by *contact_id* in URI from form fields and rules below
+
+| Field name  | Type   | Requiered | Observation    |
+| ----------- | ------ |:---------:| -------------- |
+| first_name  | string |    no     | not null       |
+| last_name   | string |    no     | not null       |
+| middle_name | string |    no     |                |
+| gender      | string |    no     | male or female |
+| title       | string |    no     | max 20 char    |
+| phone       | string |    no     | max 30 char    |
+| mobile      | string |    no     | max 30 char    |
+| email       | string |    no     | same or unique |
+| notes       | text   |    no     |                |
+| company_id  | string |    no     | must exits     |
+
+## [Delete-contact](#Delete-contact)
+*DELETE* `api/contact/{contact_id}` delete a single contact identified by *contact_id* in URI
+
+# API-Token
+
+When user authenticates with the right credentials using [login route](#Login)
+a **Token** is retrieved, this is a Bearer token necessary to atuthenticate and use any other route, other than [login route](#Login) and [routes list](#Routes).
+
+-------------
+
+An API resources file in *Insomnia v4* format is available in `/storage/api_resources_insomnia.yaml`
+
+-------------
+
+:octocat: [Arcadio Macedo](https://github.com/makmacedo)

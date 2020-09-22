@@ -1,0 +1,625 @@
+_type: export
+__export_format: 4
+__export_date: 2020-09-22T21:07:16.986Z
+__export_source: insomnia.desktop.app:v2020.4.0
+resources:
+  - _id: req_80ecbb376b4b430fae9e4da9b70a5279
+    parentId: wrk_826999a71e6e4d4e8ccc8d3b4640068d
+    modified: 1600808166092
+    created: 1600804848823
+    url: http://localhost/api/routes
+    name: routes
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: Accept
+        value: application/json
+        description: ""
+        id: pair_2ba87aca5cbf4a25867e8a044632978e
+    authentication: {}
+    metaSortKey: -1600804848823
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: wrk_826999a71e6e4d4e8ccc8d3b4640068d
+    parentId: null
+    modified: 1600721908703
+    created: 1600721908703
+    name: Insomnia
+    description: ""
+    scope: null
+    _type: workspace
+  - _id: req_4c64f17142024165b5046b6a2cfceeb3
+    parentId: fld_b1c0e8d2ba60479cac0563a5ff378048
+    modified: 1600807485162
+    created: 1600784210332
+    url: http://contact-manager.test/api/company/
+    name: index
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: Accept
+        value: application/json
+        description: ""
+        id: pair_c64f386e590541b5bc8144c7ca477af4
+        disabled: false
+    authentication:
+      type: bearer
+      token: <API TOKEN>
+      prefix: Bearer
+    metaSortKey: -1600727916685.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_b1c0e8d2ba60479cac0563a5ff378048
+    parentId: wrk_826999a71e6e4d4e8ccc8d3b4640068d
+    modified: 1600784197140
+    created: 1600784197140
+    name: Company
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1600784197140
+    _type: request_group
+  - _id: req_e1caafd05fac44f4964fb4ca5c0c1890
+    parentId: fld_b1c0e8d2ba60479cac0563a5ff378048
+    modified: 1600807633583
+    created: 1600785439689
+    url: http://contact-manager.test/api/company/<CONTACT_ID>/contacts
+    name: contacts
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: Accept
+        value: application/json
+        description: ""
+        id: pair_c64f386e590541b5bc8144c7ca477af4
+        disabled: false
+    authentication:
+      type: bearer
+      token: <API TOKEN>
+      prefix: Bearer
+    metaSortKey: -1600727916673
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_825cca2bf0204de188b093e6730e6ce6
+    parentId: fld_b1c0e8d2ba60479cac0563a5ff378048
+    modified: 1600807616350
+    created: 1600785464127
+    url: http://contact-manager.test/api/search
+    name: search
+    description: ""
+    method: POST
+    body:
+      mimeType: multipart/form-data
+      params:
+        - name: term
+          value: ""
+          description: ""
+          id: pair_c153f27f5d0c4358b604bde94ec76c13
+    parameters: []
+    headers:
+      - name: Accept
+        value: application/json
+        description: ""
+        id: pair_c64f386e590541b5bc8144c7ca477af4
+        disabled: false
+      - name: Content-Type
+        value: multipart/form-data
+        id: pair_c05c6540c2d44ea987fe2a66f1f60bac
+    authentication:
+      type: bearer
+      token: <API TOKEN>
+      prefix: Bearer
+    metaSortKey: -1600727916666.75
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_1c76c5b015d64b64840817b83c9ac0a8
+    parentId: fld_8456ea28bff8494b93b6efb197e8dd3c
+    modified: 1600807646312
+    created: 1600731604565
+    url: http://contact-manager.test/api/contact
+    name: index
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: Accept
+        value: application/json
+        description: ""
+        id: pair_c64f386e590541b5bc8144c7ca477af4
+    authentication:
+      type: bearer
+      token: <API TOKEN>
+      prefix: Bearer
+    metaSortKey: -1600727916710.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_8456ea28bff8494b93b6efb197e8dd3c
+    parentId: wrk_826999a71e6e4d4e8ccc8d3b4640068d
+    modified: 1600731599072
+    created: 1600731599072
+    name: Contact
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1600731599072
+    _type: request_group
+  - _id: req_83c29c6035a741b5a05b17cb793fc15f
+    parentId: fld_8456ea28bff8494b93b6efb197e8dd3c
+    modified: 1600807650873
+    created: 1600732753480
+    url: http://contact-manager.test/api/contact/<CONTACT_ID>
+    name: show
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: Accept
+        value: application/json
+        description: ""
+        id: pair_647c1315b4914aeca7d9f749c9f06877
+    authentication:
+      type: bearer
+      token: <API TOKEN>
+      prefix: Bearer
+    metaSortKey: -1600727916660.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_e1c9130a388e4730981f92e47b5057f9
+    parentId: fld_8456ea28bff8494b93b6efb197e8dd3c
+    modified: 1600807654098
+    created: 1600736169410
+    url: http://contact-manager.test/api/contact/<CONTACT_ID>
+    name: destroy
+    description: ""
+    method: DELETE
+    body:
+      mimeType: multipart/form-data
+      params:
+        - name: _method
+          value: DELETE
+          description: ""
+          id: pair_2083af62efdc47cf94e3aa6ab61fd123
+    parameters: []
+    headers:
+      - name: Accept
+        value: application/json
+        description: ""
+        id: pair_647c1315b4914aeca7d9f749c9f06877
+      - name: Content-Type
+        value: multipart/form-data
+        id: pair_a935f566523546b2809472ef4010c645
+    authentication:
+      type: bearer
+      token: <API TOKEN>
+      prefix: Bearer
+    metaSortKey: -1600726994684.375
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_16498b780fd848fb89bc305da1e4470a
+    parentId: fld_8456ea28bff8494b93b6efb197e8dd3c
+    modified: 1600807508159
+    created: 1600733553340
+    url: http://contact-manager.test/api/contact
+    name: store
+    description: ""
+    method: POST
+    body:
+      mimeType: multipart/form-data
+      params:
+        - name: first_name
+          value: ""
+          description: ""
+          id: pair_b783a32f76da426f98734920d6922eed
+        - name: last_name
+          value: ""
+          description: ""
+          id: pair_60c0edfa2fb8482e854f0331bd920400
+        - name: mobile
+          value: ""
+          description: ""
+          id: pair_4ddf1790bab3466a81232cfbaf5a1bd1
+        - name: email
+          value: ""
+          description: ""
+          id: pair_2364623099ce4c4a9ad8806ca2d84817
+        - name: company_id
+          value: ""
+          description: ""
+          id: pair_5de4a953c45b40ffb19c443a328142e5
+        - name: gender
+          value: ""
+          description: ""
+          id: pair_893c18ccbf8042b192c5799c92e0aeba
+          disabled: false
+        - name: title
+          value: ""
+          description: ""
+          id: pair_2cebb36465ed43edb38382e461f043f0
+          disabled: false
+        - name: middle_name
+          value: ""
+          description: ""
+          id: pair_e32d1d477fd743c2b29d966337adce3c
+        - name: Notes
+          value: ""
+          description: ""
+          id: pair_f8e1a69b8a5f4445ab9605f0a533d56c
+          type: text
+          multiline: true
+    parameters: []
+    headers:
+      - name: Accept
+        value: application/json
+        description: ""
+        id: pair_647c1315b4914aeca7d9f749c9f06877
+      - name: Content-Type
+        value: multipart/form-data
+        id: pair_f1a193f1b9414ec78ffd8a664895f90e
+    authentication:
+      type: bearer
+      token: <API TOKEN>
+      prefix: Bearer
+    metaSortKey: -1600726072708.25
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_38c528bcffa84c09a895363d51313a72
+    parentId: fld_8456ea28bff8494b93b6efb197e8dd3c
+    modified: 1600807664490
+    created: 1600735860286
+    url: http://contact-manager.test/api/contact/<CONTACT_ID>
+    name: update
+    description: ""
+    method: POST
+    body:
+      mimeType: multipart/form-data
+      params:
+        - name: _method
+          value: PATCH
+          description: ""
+          id: pair_8eb57439bd32459680208081d7c04356
+        - name: first_name
+          value: ""
+          description: ""
+          id: pair_b783a32f76da426f98734920d6922eed
+          disabled: false
+        - name: last_name
+          value: ""
+          description: ""
+          id: pair_60c0edfa2fb8482e854f0331bd920400
+          disabled: false
+        - name: mobile
+          value: ""
+          description: ""
+          id: pair_4ddf1790bab3466a81232cfbaf5a1bd1
+          disabled: false
+        - name: email
+          value: ""
+          description: ""
+          id: pair_2364623099ce4c4a9ad8806ca2d84817
+          disabled: false
+        - name: company_id
+          value: ""
+          description: ""
+          id: pair_5de4a953c45b40ffb19c443a328142e5
+          disabled: false
+        - name: gender
+          value: ""
+          description: ""
+          id: pair_893c18ccbf8042b192c5799c92e0aeba
+          disabled: false
+        - name: title
+          value: ""
+          description: ""
+          id: pair_2cebb36465ed43edb38382e461f043f0
+          disabled: false
+        - name: middle_name
+          value: ""
+          description: ""
+          id: pair_e32d1d477fd743c2b29d966337adce3c
+          disabled: false
+        - name: notes
+          value: ""
+          description: ""
+          id: pair_f8e1a69b8a5f4445ab9605f0a533d56c
+          disabled: false
+          type: text
+          multiline: true
+    parameters: []
+    headers:
+      - name: Accept
+        value: application/json
+        description: ""
+        id: pair_647c1315b4914aeca7d9f749c9f06877
+        disabled: false
+      - name: Content-Type
+        value: multipart/form-data
+        id: pair_f1a193f1b9414ec78ffd8a664895f90e
+        disabled: false
+    authentication:
+      type: bearer
+      token: <API TOKEN>
+      prefix: Bearer
+    metaSortKey: -1600725150732.125
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_1fc1616bf5fc489f874ca977765e2c58
+    parentId: fld_325c8eb2655f42babe46f9e82e4e4a60
+    modified: 1600807459455
+    created: 1600722257776
+    url: http://contact-manager.test/api/login
+    name: login
+    description: ""
+    method: POST
+    body:
+      mimeType: multipart/form-data
+      params:
+        - name: email
+          value: ""
+          description: ""
+          id: pair_e63abb96094845948fa1f93081e9ffa8
+          type: text
+          multiline: false
+        - name: password
+          value: ""
+          description: ""
+          id: pair_35050a4eea4740a6a8a64f7de534581a
+          type: text
+          multiline: false
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: multipart/form-data
+        id: pair_445a12e42f974acfbdf7f764f6bcc033
+      - name: Accept
+        value: application/json
+        description: ""
+        id: pair_97e60dc042a94eafb2107a40e17aff93
+    authentication: {}
+    metaSortKey: -1600722257776
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_325c8eb2655f42babe46f9e82e4e4a60
+    parentId: wrk_826999a71e6e4d4e8ccc8d3b4640068d
+    modified: 1600730534470
+    created: 1600730534470
+    name: Auth
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1600730534471
+    _type: request_group
+  - _id: req_b3d548341169467cab60c73a756e88a1
+    parentId: fld_325c8eb2655f42babe46f9e82e4e4a60
+    modified: 1600807516268
+    created: 1600731190631
+    url: http://contact-manager.test/api/logout
+    name: logout
+    description: "Store new user `required: name, email, password,
+      password_confirmation fields`"
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: Accept
+        value: application/json
+        id: pair_d7c8ff236dae4fe9b9e56b917d5817e5
+    authentication:
+      type: bearer
+      token: <API TOKEN>
+      prefix: Bearer
+    metaSortKey: -1600722257726
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_5486f617ee044f569a18ce8c49cf374d
+    parentId: fld_c731b2ca86e54cb38feaf9c7b0d7393a
+    modified: 1600807519198
+    created: 1600724228656
+    url: http://contact-manager.test/api/user
+    name: show
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: Accept
+        value: application/json
+        description: ""
+        id: pair_8426dc08d8f44b9c8b6358697f51c607
+    authentication:
+      type: bearer
+      token: <API TOKEN>
+      prefix: Bearer
+    metaSortKey: -1600724228756
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_c731b2ca86e54cb38feaf9c7b0d7393a
+    parentId: wrk_826999a71e6e4d4e8ccc8d3b4640068d
+    modified: 1600730426620
+    created: 1600730426620
+    name: User
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1600730426620
+    _type: request_group
+  - _id: req_9ae66d8945df47c89e8064812f7255b7
+    parentId: fld_c731b2ca86e54cb38feaf9c7b0d7393a
+    modified: 1600807541196
+    created: 1600730327857
+    url: http://contact-manager.test/api/register
+    name: store
+    description: "Store new user `required: name, email, password,
+      password_confirmation fields`"
+    method: POST
+    body:
+      mimeType: multipart/form-data
+      params:
+        - name: name
+          value: ""
+          description: ""
+          id: pair_f8cdce99699b4ad2bba66a92f808a43e
+        - name: email
+          value: ""
+          description: ""
+          id: pair_9c4f5bc5dd884586b800f1c437710512
+        - name: password
+          value: ""
+          description: ""
+          id: pair_84dba40b93a2485eb63ac8559cc06694
+        - name: password_confirmation
+          value: ""
+          description: ""
+          id: pair_4abd11993418493dbd367cbde972e2ec
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: multipart/form-data
+        id: pair_d7c8ff236dae4fe9b9e56b917d5817e5
+      - name: Accept
+        value: application/json
+        description: ""
+        id: pair_db03fde358374aa2b3350f13107fb48b
+    authentication:
+      type: bearer
+      token: <API TOKEN>
+      prefix: Bearer
+    metaSortKey: -1600724228706
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_806ef23b3bb616e787464190ae1c8c2000ab6b04
+    parentId: wrk_826999a71e6e4d4e8ccc8d3b4640068d
+    modified: 1600721908750
+    created: 1600721908750
+    name: Base Environment
+    data: {}
+    dataPropertyOrder: null
+    color: null
+    isPrivate: false
+    metaSortKey: 1600721908750
+    _type: environment
+  - _id: jar_806ef23b3bb616e787464190ae1c8c2000ab6b04
+    parentId: wrk_826999a71e6e4d4e8ccc8d3b4640068d
+    modified: 1600773213620
+    created: 1600721908754
+    name: Default Jar
+    cookies:
+      - key: XSRF-TOKEN
+        value: eyJpdiI6InpaQlZkK3lraVp6cU0xcFNHMFpXNnc9PSIsInZhbHVlIjoiQU9ieUNCaXNDQWdrbS9qME04Z3hOUnEzcXFZQzd0R0NWb2t5VG5XRi9jWmNENWh5SFgxdWRQUUU4STRvRVRmeXlvb3JVdFdzc1QvT1h6NHF0UmpKdmNFcU42ZEhVSytwckUxdHovRTYwczZwSDhBQU9ZbkdxVW82NURvM21rWkUiLCJtYWMiOiI3NjVkOGNkMTdjZmQ1Y2U5MGYwY2FjMmRkZjdmNDJkYzZlZTQxM2RhMDY2OTUzNTc2MjAwNzcwMDUyMzkyMzEyIn0%3D
+        expires: 2020-09-22T13:13:32.000Z
+        maxAge: 7200
+        domain: contact-manager.test
+        path: /
+        extensions:
+          - samesite=lax
+        hostOnly: true
+        creation: 2020-09-21T21:44:08.081Z
+        lastAccessed: 2020-09-22T11:13:33.620Z
+        id: "1836131458834276"
+      - key: contact_manager_session
+        value: eyJpdiI6Iml3WkFzYStsb1RPemFMZUpsTkFTNUE9PSIsInZhbHVlIjoiUkloc2dnMloyYXJBK0Q1OFFHM1JBT0gvUjIzVmdHU1lUZjUwSmVka0FYS2ZSTlNIdk9kMUN3WC9lYmpIcVhtUUNEcStUd1dlTDU5WE9tcklYdmhKNmgzQjFkT0ZnMEtJYlZldWczQUNTcjVQZDVBNnZubzFPK05OUnFvNTZqNjMiLCJtYWMiOiI2NjA0ZjhhYjNhNWQzYTk2ZTc1N2IwODMwYjYxYmQxMWI3OTg4M2JiZWQ1OGZiNGZmODNjYWY4NGZhNTcyMTM0In0%3D
+        expires: 2020-09-22T13:13:32.000Z
+        maxAge: 7200
+        domain: contact-manager.test
+        path: /
+        httpOnly: true
+        extensions:
+          - samesite=lax
+        hostOnly: true
+        creation: 2020-09-21T21:44:08.081Z
+        lastAccessed: 2020-09-22T11:13:33.620Z
+        id: "33477597831036876"
+    _type: cookie_jar
+  - _id: spc_09bb18c526b2494ab229276bf3125bab
+    parentId: wrk_826999a71e6e4d4e8ccc8d3b4640068d
+    modified: 1600721908706
+    created: 1600721908706
+    fileName: Insomnia
+    contents: ""
+    contentType: yaml
+    _type: api_spec
