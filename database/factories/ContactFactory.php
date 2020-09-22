@@ -25,7 +25,6 @@ class ContactFactory extends Factory
         return [
             'gender' => $gender = $this->faker->randomElement(['male', 'female']),
             'title' => $this->faker->title($gender),
-            'first_name' => $this->faker->title($gender),
             'first_name' => $this->faker->firstName($gender),
             'middle_name' => $this->faker->lastName,
             'last_name' => $this->faker->lastName,
