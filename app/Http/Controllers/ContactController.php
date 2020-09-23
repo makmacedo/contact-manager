@@ -5,10 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Company;
 use App\Models\Contact;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
 use App\Http\Requests\StoreContact;
 use App\Http\Requests\UpdateContact;
-use Illuminate\Support\Facades\Validator;
 
 class ContactController extends Controller
 {

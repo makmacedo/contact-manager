@@ -21,7 +21,7 @@ composer install
 ```
 php artisan migrate --seed
 ```
-### Serve local aplication
+### Serve local application
 ```
 php artisan serve
 ```
@@ -30,7 +30,7 @@ php artisan serve
 
 | Method    | URI                                                    | Action                                          |
 | --------- | ------------------------------------------------------ | ----------------------------------------------- |
-| GET/HEAD  | [api/routes](#Routes)                                  | App\Http\Controllers\Controler@routes           |
+| GET/HEAD  | [api/routes](#Routes)                                  | App\Http\Controllers\Controller@routes           |
 | POST      | [api/login](#Login)                                    | App\Http\Controllers\AuthController@login       |
 | GET/HEAD  | [api/logout](#Logout)                                  | App\Http\Controllers\AuthController@logout      |
 | POST      | [api/register](#Store-user)                            | App\Http\Controllers\UserController@store       |
@@ -47,12 +47,12 @@ php artisan serve
 ------------------
 
 ## [Routes](#Routes)
-*GET* `api/routes` retrieve the [list of api routes](#API-Routes).
+*GET* `api/routes` retrieve the [list of API routes](#API-Routes).
 
 ## [Login](#Login)
-*POST* `api/login` autehnticate user based on credentials sent over form fields, and retrieve a [API token](#API-Token) necessary to necessary to interact with other API end-point
+*POST* `api/login` authenticate user based on credentials sent over form fields, and retrieve an [API token](#API-Token) necessary to necessary to interact with other API end-point
 
-| Field name  | Type   | Requiered |
+| Field name  | Type   | Required  |
 | ----------- | ------ |:---------:|
 | email       | string |    yes    |
 | password    | string |    yes    |
@@ -61,9 +61,9 @@ php artisan serve
 *POST* `api/logout` revoke authenticated user [API token](#API-Token).
 
 ## [Store-user](#Store-user)
-*POST* `api/register` store a new user based on form fiels and rules below
+*POST* `api/register` store a new user based on form fields and rules below
 
-| Field name           | Type   | Requiered | Observation      |
+| Field name           | Type   | Required  | Observation      |
 | -------------------- | ------ |:---------:| ---------------- |
 | name                 | string |    yes    |                  |
 | email                | string |    yes    | email format     |
@@ -71,24 +71,24 @@ php artisan serve
 | password_confimation | string |    yes    | same as password |
 
 ## [Auth-user](#Auth-user)
-*GET* `api/user` retrieve the authenticated user informations.
+*GET* `api/user` retrieve the authenticated user details.
 
 ## [All-companies](#All-companies)
 *GET* `api/company` 
-shows a list off all companies.
+shows a list of all companies.
 
 ## [Company-contacts](#Company-contacts)
 *GET* `api/company/{company_id}/contacts` 
-shows a company list of contacts identifing company by id in URI first parameter.
+shows a company list of contacts identifying company by id in URI first parameter.
 
 ## [Contacts-list](#Contacts-list)
 *GET* `api/contact` 
 show a paginated list of contacts
-- acxept an optional query parameter `limit` that define the amout of contacts per page, (`limit` is 10 by default and can assume other value or *all*)
+- accept an optional query parameter `limit` that define how many contacts should load per page, (`limit` is 10 by default and can assume other value or *all*)
 - accept an optional query parameter `page` that define the current page of contacts. 
 
 ## [Store-contact](#Store-contact)
-*POST* `api/contact` store a new contact based on form fiels and rules below
+*POST* `api/contact` store a new contact based on form fields and rules below
 
 | Field name  | Type   | Requiered | Observation    |
 | ----------- | ------ |:---------:| -------------- |
@@ -107,7 +107,7 @@ show a paginated list of contacts
 
 *POST* `api/search` search by name companies or contacts based in partial string match with form field `term` 
 
-| Field name  | Type   | Requiered |
+| Field name  | Type   | Required  |
 | ----------- | ------ |:---------:|
 | term        | string |    yes    |
 
@@ -117,7 +117,7 @@ show a paginated list of contacts
 ## [Edit-contact](#Edit-contact)
 *PATCH* `api/contact/{contact_id}` update a contact identified by *contact_id* in URI from form fields and rules below
 
-| Field name  | Type   | Requiered | Observation    |
+| Field name  | Type   | Required  | Observation    |
 | ----------- | ------ |:---------:| -------------- |
 | first_name  | string |    no     | not null       |
 | last_name   | string |    no     | not null       |
@@ -128,15 +128,15 @@ show a paginated list of contacts
 | mobile      | string |    no     | max 30 char    |
 | email       | string |    no     | same or unique |
 | notes       | text   |    no     |                |
-| company_id  | string |    no     | must exits     |
+| company_id  | string |    no     | must exist     |
 
 ## [Delete-contact](#Delete-contact)
 *DELETE* `api/contact/{contact_id}` delete a single contact identified by *contact_id* in URI
 
 # API-Token
 
-When user authenticates with the right credentials using [login route](#Login)
-a **Token** is retrieved, this is a Bearer token necessary to atuthenticate and use any other route, other than [login route](#Login) and [routes list](#Routes).
+When a user authenticates with the right credentials using [login route](#Login)
+a **Token** is retrieved, this is a Bearer token necessary to authenticate and use any other route, other than [login route](#Login) and [routes list](#Routes).
 
 -------------
 
